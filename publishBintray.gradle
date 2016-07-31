@@ -2,7 +2,7 @@ apply plugin: 'com.github.dcendents.android-maven'
 apply plugin: 'com.jfrog.bintray'
 
 Properties properties = new Properties()
-properties.load(project.rootProject.file('project.properties').newDataInputStream())
+properties.load(project.file('project.properties').newDataInputStream())
 
 //bintray user info
 def BINTRAY_USER = properties.getProperty("BINTRAY_USER")
