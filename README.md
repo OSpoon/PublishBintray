@@ -3,7 +3,7 @@ Bintray ([传送门](https://bintray.com))
 
 - 1.在项目根目录下build.gradle文件中配置插件
 
-	    classpath 'com.github.dcendents:android-maven-gradle-plugin:1.3'
+	    classpath 'com.github.dcendents:android-maven-gradle-plugin:1.4.1'
     	classpath 'com.jfrog.bintray.gradle:gradle-bintray-plugin:1.2'
     
 - 2.下载project.properties文件并放到你的library module目录下
@@ -57,7 +57,7 @@ Bintray ([传送门](https://bintray.com))
     	}
     	
 		//添加插件
-    	apply from 'https://raw.githubusercontent.com/Spoon2014/PublishBintray/master/publishBintray.gradle'
+    	apply from: 'https://raw.githubusercontent.com/Spoon2014/PublishBintray/master/publishBintray.gradle'
     	
     	dependencies {
 	    	compile fileTree(dir: 'libs', include: ['*.jar'])
