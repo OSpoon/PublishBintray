@@ -3,9 +3,9 @@ Bintray ([传送门](https://bintray.com))
 
 - 1.在项目根目录下build.gradle文件中配置插件
 
-	    classpath 'com.github.dcendents:android-maven-gradle-plugin:1.4.1'
+        classpath 'com.github.dcendents:android-maven-gradle-plugin:1.4.1'
     	classpath 'com.jfrog.bintray.gradle:gradle-bintray-plugin:1.2'
-    
+
 - 2.下载project.properties文件并放到你的library module目录下
 
 	    #BINTRAY账户信息
@@ -39,32 +39,37 @@ Bintray ([传送门](https://bintray.com))
 	    apply plugin: 'com.android.library'
     
     	android {
-	    	compileSdkVersion 23
-	    	buildToolsVersion "24.0.0"
-	    	
-	    	defaultConfig {
+    		compileSdkVersion 23
+    		buildToolsVersion "24.0.0"
+    		
+    	defaultConfig {
 	    	minSdkVersion 15
 	    	targetSdkVersion 23
 	    	versionCode 1
 	    	versionName "1.0"
     	}
     	buildTypes {
-	    	release {
-		    	minifyEnabled false
-		    		proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
-		    	}
-	    	}
+    		release {
+    			minifyEnabled false
+    				proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+    			}
+    		}
     	}
     	
-		//添加插件
-    	apply from: 'https://raw.githubusercontent.com/Spoon2014/PublishBintray/master/publishBintray.gradle'
+    	//添加插件
+		apply from: 'https://raw.githubusercontent.com/Spoon2014/PublishBintray/master/publishBintray.gradle'
     	
     	dependencies {
-	    	compile fileTree(dir: 'libs', include: ['*.jar'])
-	    	testCompile 'junit:junit:4.12'
-	    	compile 'com.android.support:appcompat-v7:23.4.0'
+    		compile fileTree(dir: 'libs', include: ['*.jar'])
+    		testCompile 'junit:junit:4.12'
+    		compile 'com.android.support:appcompat-v7:23.4.0'
     	}
 
 
 - 4.编译项目后执行发布命令即可
-
+- 5.注意:
+- 	    先后执行以下命令,无错误后执行publishing->bintrayUpload
+    - 	Gradle--->model--->other
+	    - 						--->install
+	    - 						--->javadocJar
+	    - 						--->sourcesJar
